@@ -11,7 +11,7 @@ module.exports = {
         if (!data) return message.channel.send('Lỗi vui lòng thử lại sau');
             let boyEmbed = new MessageEmbed()
                 .setColor('GREEN')
-                .setAuthor(`Boy`, message.guild.iconURL)
+                .setAuthor(`Girl`, message.guild.iconURL)
                 .setImage(data.url)
                 .setTimestamp()
                 .setFooter(`Bot: Duwc510_ by hongduccodedao`, client.user.displayAvatarURL)
