@@ -1,7 +1,7 @@
 const {MessageEmbed} = require('discord.js');
 const fetch = require('node-fetch');
 module.exports = {
-    name: 'trai',
+    name: 'boy',
     category: 'Image',
     run: async (client, message, args) => {
         let msg = await message.channel.send('Vui lòng chờ...');
