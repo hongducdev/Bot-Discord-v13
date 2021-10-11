@@ -12,6 +12,8 @@ module.exports = {
             let boyEmbed = new MessageEmbed()
                 .setColor('GREEN')
                 .setAuthor(`Girl`, message.guild.iconURL)
+                .setURL(data.url)
+                .setTitle('Download here')
                 .setImage(data.url)
                 .setTimestamp()
                 .setFooter(`Bot: Duwc510_ by hongduccodedao`, client.user.displayAvatarURL)
