@@ -12,6 +12,8 @@ module.exports = {
             let memeEmbed = new MessageEmbed()
                 .setColor('GREEN')
                 .setAuthor(`Meme`, message.guild.iconURL)
+                .setURL(data.url)
+                .setTitle('Download here')
                 .setImage(data.url)
                 .setTimestamp()
                 .setFooter(`Bot: Duwc510_ by hongduccodedao`, client.user.displayAvatarURL)
