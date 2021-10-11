@@ -29,8 +29,8 @@ module.exports = {
                 **- Số lượng bài viết:** ${account.edge_owner_to_timeline_media.count}
                 **- Người theo dõi:** ${account.edge_followed_by.count}
                 **- Đang theo dõi:** ${account.edge_follow.count}
-                **- Tài khoản riêng tư:** ${account.is_private ? "Có✅" : "Không❌"}
-                **- Tài khoản được xác minh:** ${account.is_verified ? "Có✅" : "Không❌"}`);
+                **- Tài khoản riêng tư?:** ${account.is_private ? "Có✅" : "Không❌"}
+                **- Tài khoản được xác minh?:** ${account.is_verified ? "Có✅" : "Không❌"}`);
 
         message.reply({ embeds: [embed] })
     }
