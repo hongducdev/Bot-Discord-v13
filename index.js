@@ -1,5 +1,5 @@
 const { Client, Intents, Collection } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES] });
 const { readdirSync } = require('fs');
 const fetch = require('node-fetch');
 const { Player } = require('discord-player');
@@ -13,7 +13,7 @@ client.on("ready", () => {
     console.log (`${client.user.username} đã sẵn sàng hoạt động`);
 
     // Set the client user's presence
-    client.user.setPresence({ activities: [{ name: 'Đang trong quá trình xây dựng!', type: 'WATCHING'}], status: 'online' });
+    client.user.setPresence({ activities: [{ name: '%help', type: 'PLAYING'}], status: 'online' });
 });
 
 // client.player.on('trackStart', (message, track) => message.channel.send(`🎶 Đang chơi bài \`${track.title}\`...`));
@@ -39,7 +39,7 @@ client.on("messageCreate", async (message) => {
                 message.channel.send(data.success);
             }
             catch(e) {
-                message.channel.send('Bot lỗi, vui lòng thử lại sau!');
+                message.channel.send('Đang lỗi đó chờ tí đi!');
             }
         }
     }
