@@ -3,7 +3,6 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 const { readdirSync } = require('fs');
 const fetch = require('node-fetch');
 const { Player } = require('discord-player');
-const superagent = require('superagent');
 const { token } = require('./config.json');
 // const player = new Player (client, {
 //     ytdDownloadOptions: {filter: "audioonly"},
