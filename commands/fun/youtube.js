@@ -35,7 +35,13 @@ module.exports = {
                     .setDescription("I was unable to start a yt together session.")
                     .setColor("#ff0000")
             )
-            message.channel.send(`Click vào link này để bắt đầu: \nhttps://discord.gg/${invite.code}`)
+
+            const ytembed = new MessageEmbed()
+                .setColor('GREEN')
+                .setTitle(`🚩 Youtube Together:`)
+                .setDescription(`\nDùng **Youtube Together** giúp bạn có thể xem Youtube cùng bạn bè trong 🔊 Kênh thoại. Click vào *Tham gia Youtube Together* để tham gia.\n[\n**Tham gia Youtube Together**](https://discord.gg/${invite.code})`)
+                .setFooter(`⚠️ Youtube Together chỉ hoạt động trên desktop.`)
+            message.channel.send({ embeds: [ytembed] })
         })
     }
 }
