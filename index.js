@@ -4,11 +4,12 @@ const { readdirSync } = require('fs');
 const fetch = require('node-fetch');
 const { Player } = require('discord-player');
 const { token } = require('./config.json');
-// const player = new Player (client, {
-//     ytdDownloadOptions: {filter: "audioonly"},
-// });
+const player = new Player (client, {
+    ytdDownloadOptions: {filter: "audioonly"},
+});
 
-// client.player = player;
+client.player = player;
+
 client.on("ready", () => {
     console.log (`${client.user.username} đã sẵn sàng hoạt động`);
 
@@ -16,9 +17,9 @@ client.on("ready", () => {
     client.user.setPresence({ activities: [{ name: '%help', type: 'PLAYING'}], status: 'online' });
 });
 
-// client.player.on('trackStart', (message, track) => message.channel.send(`🎶 Đang chơi bài \`${track.title}\`...`));
-// client.player.on('trackAdd', (message,queue, track) => message.channel.send(`✅ Đã thêm \`${track.title}\` vào danh sách chờ!`));
-// client.player.con('playlistAdd', (message, queue, playlist) => message.channel.send(`📃 Đã thêm \`${playlist.tracks.length}\` bài hát vào danh sách chờ!`));
+client.player.on('trackStart', (queue, track) => queue.metadata.channel.send(`🎶 Đang chơi bài \`${track.title}\`...`));
+client.player.on('trackAdd', (queue, track) => queue.metadata.channel.send(`✅ Đã thêm \`${track.title}\` vào danh sách chờ!`));
+client.player.on('tracksAdd', (queue, tracks) => queue.metadata.channel.send(`📃 Đã thêm \`${tracks.length}\` bài hát vào danh sách chờ!`));
 
 client.commands = new Collection();
 client.aliases = new Collection();
