@@ -10,9 +10,9 @@ module.exports = {
         const queue = client.player.createQueue(message.guild, {
             metadata: message,
         });
-        const song = await client.player.search(query, {
+        const result = await client.player.search(query, {
           requestedBy: message.author
-        });
+        }).then(song => song.tracks[0]);
          
         try {
             await queue.connect(message.member.voice.channel);
@@ -20,6 +20,6 @@ module.exports = {
             message.reply("Could not join your voice channel");
         }
         
-        queue.play(song.tracks[0]);
+        queue.play(result);
     }
 }
