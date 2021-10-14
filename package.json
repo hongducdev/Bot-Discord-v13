@@ -6,9 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "engines": {
-    "node": "16.x"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -21,6 +18,7 @@
     "discord.js": "^13.2.0",
     "google-tts-api": "^2.0.2",
     "libsodium-wrappers": "^0.7.9",
+    "slash-create": "^4.3.0",
     "twemoji-parser": "^13.1.0"
   }
 }
