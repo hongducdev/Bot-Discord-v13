@@ -63,7 +63,7 @@ client.on("messageCreate", async (message) => {
             try {
                 const res = await fetch(`https://api.simsimi.net/v2/?text=${encodeURIComponent(message.content)}&lc=vn`);
                 const data = await res.json()
-                message.channel.send(data.success);
+                message.reply(data.success);
             }
             catch(e) {
                 message.channel.send('Đang lỗi đó chờ tí đi!');
