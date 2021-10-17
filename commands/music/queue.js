@@ -5,7 +5,7 @@ module.exports = {
     name: 'queue',
     category: 'music',
     aliases: ['q'],
-    description: 'Chơi nhạc từ youtube, spotify, soundcloud',
+    description: 'Liệt kê danh sách nhạc',
     run: async(client, message, args) => {
         if (checkSameRoom(message)) return;
         const query = args.join(' ');
@@ -22,7 +22,7 @@ module.exports = {
         const pageEnd = pageStart + 10;
         const currentTrack = queue.current;
         const tracks = queue.tracks.slice(pageStart, pageEnd).map((m, i) => {
-            return `${i + pageStart + 1}. **${m.title}** ([link](${m.url}))`;
+            return `${i + pageStart + 1}.[**${m.title}**](${m.url})`;
         });
 
         return void message.reply({
