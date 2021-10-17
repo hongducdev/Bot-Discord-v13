@@ -25,7 +25,7 @@ module.exports = {
             queue.setRepeatMode(QueueRepeatMode.QUEUE);
             const enableLoop = new MessageEmbed()
             .setColor('GREEN')
-            .setAuthor(`✅- Đã tắt loop !`)
+            .setAuthor(`✅- Đã bật loop !`)
             .setTimestamp()
             return message.channel.send({ embeds: [enableLoop] });
         };
