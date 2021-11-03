@@ -59,7 +59,7 @@ client.on("messageCreate", async (message) => {
     if (message.author.bot) return;
     const prefix = '%';
     if (!message.content.startsWith(prefix)) {
-        if (message.channel.id == '894604881653006346' && '796375164338044930') {
+        if (message.channel.id == '894604881653006346') {
             try {
                 const res = await fetch(`https://api.simsimi.net/v2/?text=${encodeURIComponent(message.content)}&lc=vn`);
                 const data = await res.json()
