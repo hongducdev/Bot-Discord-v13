@@ -6,15 +6,15 @@ module.exports = {
     run: async (client, message, args) => {
         let msg = await message.channel.send('Vui lòng chờ...');
         
-        let body = await fetch (`https://api.popcat.xyz/meme`)
+        let body = await fetch (`https://api.huyapi.ga/v2/?type=meme`)
         const data = await body.json()
         if (!data) return message.channel.send('Lỗi vui lòng thử lại sau');
             let memeEmbed = new MessageEmbed()
                 .setColor('GREEN')
                 .setAuthor(`Meme`, message.guild.iconURL)
-                .setDescription(data.title)
-                .setURL(data.image)
-                .setImage(data.image)
+                .setURL(data.url)
+                .setTitle('Download here')
+                .setImage(data.url)
                 .setTimestamp()
                 .setFooter(`Bot: Duwc510_ by hongduccodedao`, client.user.displayAvatarURL)
 

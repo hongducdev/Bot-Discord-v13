@@ -6,15 +6,15 @@ module.exports = {
     run: async (client, message, args) => {
         let msg = await message.channel.send('Vui lòng chờ...');
         
-        let body = await fetch (`http://aws.random.cat/meow`)
+        let body = await fetch (`https://api.huyapi.ga/v2/?type=meo`)
         const data = await body.json()
         if (!data) return message.channel.send('Lỗi vui lòng thử lại sau');
             let cEmbed = new MessageEmbed()
                 .setColor('GREEN')
                 .setAuthor(`Cat`, message.guild.iconURL)
-                .setURL(data.file)
+                .setURL(data.url)
                 .setTitle('Download here')
-                .setImage(data.file)
+                .setImage(data.url)
                 .setTimestamp()
                 .setFooter(`Bot: Duwc510_ by hongduccodedao`, client.user.displayAvatarURL)
 

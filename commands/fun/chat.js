@@ -7,7 +7,7 @@ module.exports = {
         try {
             const res = await fetch(`https://api.simsimi.net/v2/?text=${encodeURIComponent(args.join(' '))}&lc=vn`);
             const data = await res.json()
-            message.channel.send(data.success);
+            message.reply(data.success);
         }
         catch (e) {
             message.channel.send('Bot lỗi, vui lòng thử lại sau!');

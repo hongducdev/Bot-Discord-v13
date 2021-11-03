@@ -15,30 +15,29 @@ module.exports = {
             host: 'https://translate.google.com',
             timeout: 10000,
         });
+
+        const connection = voice.joinVoiceChannel({
+            channelId: message.member.voice.channel.id,
+            guildId: message.guild.id,
+            adapterCreator: message.guild.voiceAdapterCreator,
+        })
+        //create source
+        const resource = voice.createAudioResource(audioURL)
+        const player = voice.createAudioPlayer()
         
+        
+
         try {
-            //tạo source để play
-            const resource = voice.createAudioResource(audioURL)
-            const player = voice.createAudioPlayer()
-
-            //kết nối voice
-            const connection = voice.joinVoiceChannel({
-                channelId: message.member.voice.channel.id,
-                guildId: message.guild.id,
-                adapterCreator: message.guild.voiceAdapterCreator
-            })
-
-            //play source
+            //tạo âm thanh
             player.play(resource)
             connection.subscribe(player)
 
             //check nếu play xong thì out voice
-            player.on('idle', () => {
+            player.on(voice.AudioPlayerStatus.Idle, () => {
                 //out kênh thoại
-                connection.destroy()
+                // connection.destroy()
             })
-        }
-        catch(e) {
+        } catch(e) {
             message.channel.send('Bot lỗi, vui lòng thử lại sau!');
             console.error(e);
         };

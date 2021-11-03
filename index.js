@@ -1,25 +1,51 @@
-const { Client, Intents, Collection } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const { Client, Intents, Collection, MessageEmbed } = require('discord.js');
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES] });
 const { readdirSync } = require('fs');
 const fetch = require('node-fetch');
 const { Player } = require('discord-player');
-const superagent = require('superagent');
 const { token } = require('./config.json');
-// const player = new Player (client, {
-//     ytdDownloadOptions: {filter: "audioonly"},
-// });
+const player = new Player (client, {
+    ytdDownloadOptions: {filter: "audioonly"},
+});
 
-// client.player = player;
+client.player = player;
+
 client.on("ready", () => {
     console.log (`${client.user.username} đã sẵn sàng hoạt động`);
 
     // Set the client user's presence
-    client.user.setPresence({ activities: [{ name: 'Đang trong quá trình xây dựng!', type: 'WATCHING'}], status: 'online' });
+    client.user.setPresence({ activities: [{ name: '%help', type: 'PLAYING'}], status: 'online' });
 });
 
-// client.player.on('trackStart', (message, track) => message.channel.send(`🎶 Đang chơi bài \`${track.title}\`...`));
-// client.player.on('trackAdd', (message,queue, track) => message.channel.send(`✅ Đã thêm \`${track.title}\` vào danh sách chờ!`));
-// client.player.con('playlistAdd', (message, queue, playlist) => message.channel.send(`📃 Đã thêm \`${playlist.tracks.length}\` bài hát vào danh sách chờ!`));
+
+client.player.on('trackStart', (queue, track) => {
+    const playingEmbed = new MessageEmbed()
+        .setColor('GREEN')
+        .setTitle(`Đang chơi...`)
+        .setThumbnail(track.thumbnail)
+        .setDescription(`\n[**${track.title}**](${track.url})\n**Người thêm: ** ${track.requestedBy.tag}`)
+        .setTimestamp()
+    queue.metadata.channel.send({ embeds: [playingEmbed] })
+});
+
+client.player.on('trackAdd', (queue, track) => {
+    const addEmbed = new MessageEmbed()
+        .setColor('GREEN')
+        .setTitle(`Đã thêm vào danh sách chờ...`)
+        .setThumbnail(track.thumbnail)
+        .setDescription(`\n✅ Đã thêm \`${track.title}\` vào danh sách chờ!`)
+        .setTimestamp()
+    queue.metadata.channel.send({ embeds: [addEmbed]} )
+});
+
+client.player.on('tracksAdd', (queue, tracks) => {
+    const addsEmbed = new MessageEmbed()
+        .setColor('GREEN')
+        .setTitle(`Đã thêm vào danh sách chờ...`)
+        .setDescription(`\n📃 Đã thêm \`${tracks.length}\` bài hát vào danh sách chờ!`)
+        .setTimestamp()
+    queue.metadata.channel.send({ embeds: [addsEmbed]} )
+});
 
 client.commands = new Collection();
 client.aliases = new Collection();
@@ -33,14 +59,14 @@ client.on("messageCreate", async (message) => {
     if (message.author.bot) return;
     const prefix = '%';
     if (!message.content.startsWith(prefix)) {
-        if (message.channel.id == '894240549966602261' || '893401082712182784') {
+        if (message.channel.id == '894604881653006346' && '796375164338044930') {
             try {
                 const res = await fetch(`https://api.simsimi.net/v2/?text=${encodeURIComponent(message.content)}&lc=vn`);
                 const data = await res.json()
-                message.channel.send(data.success);
+                message.reply(data.success);
             }
             catch(e) {
-                message.channel.send('Bot lỗi, vui lòng thử lại sau!');
+                message.channel.send('Đang lỗi đó chờ tí đi!');
             }
         }
     }
