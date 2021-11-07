@@ -17,7 +17,7 @@ module.exports = {
         const perc = queue.getPlayerTimestamp();
         const npEmbed = new MessageEmbed()
             .setColor('GREEN')
-            .setTitle(`Đang chơi...`)
+            .setAuthor('Đang chơi..', 'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/logo.gif')
             .setDescription( `🎶 | [**${queue.current.title}**](${queue.current.url})! (\`${perc.progress == 'Infinity' ? 'Live' : perc.progress + '%'}\`)\n**Người thêm: ** ${queue.current.requestedBy.username}`)
             .setTimestamp()
         return void message.channel.send({ embeds: [npEmbed] });
