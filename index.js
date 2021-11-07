@@ -14,7 +14,7 @@ client.on("ready", () => {
     console.log (`${client.user.username} đã sẵn sàng hoạt động`);
 
     // Set the client user's presence
-    client.user.setPresence({ activities: [{ name: '%help', type: 'PLAYING'}], status: 'idle' });
+    client.user.setPresence({ activities: [{ name: '%help', type: 'PLAYING'}], status: 'online' });
 });
 
 
