@@ -14,7 +14,7 @@ client.on("ready", () => {
     console.log (`${client.user.username} đã sẵn sàng hoạt động`);
 
     // Set the client user's presence
-    client.user.setPresence({ activities: [{ name: '%help', type: 'PLAYING'}], status: 'online' });
+    client.user.setPresence({ activities: [{ name: '%help', type: 'PLAYING'}], status: 'idle' });
 });
 
 
@@ -59,14 +59,14 @@ client.on("messageCreate", async (message) => {
     if (message.author.bot) return;
     const prefix = '%';
     if (!message.content.startsWith(prefix)) {
-        if (['894604881653006346','756121714068422789','796375164338044931'].includes(message.channel.id)){
+        if (['894604881653006346','756121714068422789','796375164338044931'].includes(message.channel.id)) {
             try {
                 const res = await fetch(`https://api.simsimi.net/v2/?text=${encodeURIComponent(message.content)}&lc=vn`);
                 const data = await res.json()
                 message.reply(data.success);
             }
             catch(e) {
-                message.channel.send('Đang lỗi đó chờ tí đi!');
+                message.reply('Bot đang lỗi đó chờ tí đi!');
             }
         }
     }
