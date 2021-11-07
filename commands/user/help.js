@@ -13,11 +13,12 @@ module.exports = {
 
 function getAll(client, message) {
     const embed = new MessageEmbed()
-        .setColor ('GREEN')
-        .setAuthor('Lệnh của Đặc Vụ Con Mèo!', 'https://cdn.discordapp.com/avatars/809665557595029514/26d6026a8999165d391ad7c65698d556.png?size=100')
-        .setThumbnail(`**Prefix: % + Lệnh bạn muốn dùng.**`)
-        .setTimestamp()
-        .setFooter(`Bot: Đặc Vụ Con Mèo by hongduccodedao`, client.user.displayAvatarURL)
+    .setColor ('GREEN')
+    .setAuthor('Lệnh của Đặc Vụ Con Mèo!', 'https://cdn.discordapp.com/avatars/809665557595029514/26d6026a8999165d391ad7c65698d556.png?size=100')
+    .setTitle(`**Prefix: % + Lệnh bạn muốn dùng.**`)
+    .setTimestamp()
+    .setFooter(`Bot: Đặc Vụ Con Mèo by hongduccodedao`, client.user.displayAvatarURL)
+
 
     const commands = (category) => {
         return client.commands
@@ -32,5 +33,8 @@ function getAll(client, message) {
 
     return message.channel.send({ embeds: [embed.setDescription(info)] });
 }
+
+
+
 
 
