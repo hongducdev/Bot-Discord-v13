@@ -18,14 +18,14 @@ module.exports = {
             queue.setRepeatMode(QueueRepeatMode.OFF);
             const disableLoop = new MessageEmbed()
             .setColor('GREEN')
-            .setAuthor(`✅- Đã tắt loop !`)
+            .setAuthor(`✅- Đã tắt lặp lại!`)
             .setTimestamp()
             return message.channel.send({ embeds: [disableLoop] });
         } else {
             queue.setRepeatMode(QueueRepeatMode.QUEUE);
             const enableLoop = new MessageEmbed()
             .setColor('GREEN')
-            .setAuthor(`✅- Đã bật loop !`)
+            .setAuthor(`✅- Đã bật lặp lại!`)
             .setTimestamp()
             return message.channel.send({ embeds: [enableLoop] });
         };
