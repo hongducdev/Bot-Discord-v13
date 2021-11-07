@@ -21,7 +21,7 @@ client.on("ready", () => {
 client.player.on('trackStart', (queue, track) => {
     const playingEmbed = new MessageEmbed()
         .setColor('GREEN')
-        .setTitle(`Đang chơi...`)
+        .setAuthor('Đang chơi...', 'https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/logo.gif')
         .setThumbnail(track.thumbnail)
         .setDescription(`\n[**${track.title}**](${track.url})\n**Người thêm: ** ${track.requestedBy.tag}`)
         .setTimestamp()
