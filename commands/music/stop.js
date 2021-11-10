@@ -10,6 +10,7 @@ module.exports = {
         if (checkSameRoom(message)) return;
         const queue = client.player.getQueue(message.guild.id);
         const stopEmbed = new MessageEmbed()
+            .setTitle(`Đã ngắt kết nối...`)
             .setColor ('GREEN')
             .setDescription(`**Đặc Vụ Con Mèo đi đây!**`)
         if (queue) {
