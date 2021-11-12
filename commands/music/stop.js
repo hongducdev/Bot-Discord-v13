@@ -1,5 +1,6 @@
 const  { checkSameRoom, noMusicEmbed } = require('../../utils')
 const { MessageEmbed } = require('discord.js');
+const voice = require('@discordjs/voice')
 
 module.exports = {
     name: 'stop',
@@ -7,16 +8,17 @@ module.exports = {
     aliases: ['leave'],
     description: 'Tắt nhạc',
     run: async(client, message, args) => {
-        if (checkSameRoom(message)) return;
-        const queue = client.player.getQueue(message.guild.id);
+        const connection = voice.joinVoiceChannel({
+            channelId: message.member.voice.channel.id,
+            guildId: message.guild.id,
+            adapterCreator: message.guild.voiceAdapterCreator,
+        })
         const stopEmbed = new MessageEmbed()
+            .setColor ('RED')
             .setTitle(`Đã ngắt kết nối...`)
-            .setColor ('GREEN')
-            .setDescription(`**Đặc Vụ Con Mèo đi đây!**`)
-        if (queue) {
-            message.reply({embeds  : [stopEmbed]});
-            queue.destroy();
-        }
-        
+            .setDescription(`**Đặc Vụ Con Mèo đi đây gặp lại sau!**`)
+        if (checkSameRoom(message)) return;
+        await connection.destroy();
+        await message.reply({ embeds: [stopEmbed]});
     }
 }
