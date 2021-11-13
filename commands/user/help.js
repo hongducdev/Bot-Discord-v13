@@ -4,6 +4,8 @@ const { stripIndent } = require('common-tags');
 module.exports = {
     name: 'help',
     category: 'user',
+    aliases: ['tro_giup'],
+    utilisation: '{prefix}help',
     description: 'Hưỡng dẫn cách xài lệnh',
     usage: '%help [Tên lệnh]',
     run: async(client, message, args) => {
