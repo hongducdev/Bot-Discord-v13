@@ -16,7 +16,7 @@ module.exports = {
         const stopEmbed = new MessageEmbed()
             .setColor ('RED')
             .setTitle(`Đã ngắt kết nối...`)
-            .setDescription(`**Đặc Vụ Con Mèo đi đây gặp lại sau!**`)
+            .setDescription(`**Bao-Chan Bot đi đây gặp lại sau!**`)
         if (checkSameRoom(message)) return;
         await connection.destroy();
         await message.reply({ embeds: [stopEmbed]});
