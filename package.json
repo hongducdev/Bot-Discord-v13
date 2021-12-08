@@ -27,6 +27,7 @@
     "node-os-utils": "^1.3.5",
     "slash-create": "^4.3.0",
     "twemoji-parser": "^13.1.0",
-    "y": "^0.3.2"
+    "y": "^0.3.2",
+    "ffmpeg": "^0.0.4",
   }
 }
