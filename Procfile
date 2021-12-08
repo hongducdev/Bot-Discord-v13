@@ -1,1 +1,1 @@
-railway up
+woker: node index.js
