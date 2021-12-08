@@ -11,9 +11,7 @@ const player = new Player (client, {
 client.player = player;
 
 const activities = [
-{ name: 'Server Bao Chẩn', type: 'STREAMING' }, 
-{ name: '%help', type: 'LISTENING' },
-{ name: 'Giải_trí_cùng_nhau', type: 'PLAYING'}
+{ name: 'hongduccodedao.cf', type: 'STREAMING' }
 ];
 
 client.on("ready", () => {
@@ -71,7 +69,7 @@ client.categories = readdirSync("./commands/");
 
 client.on("messageCreate", async (message) => {
     if (message.author.bot) return;
-    const prefix = '%';
+    const prefix = 'dv';
     if(!message.content.startsWith(prefix)) {
         if (message.channel.id == '903582862626942976') {
             const res = await fetch(`https://api.simsimi.net/v2/?text=${encodeURIComponent(message.content)}&lc=vn`);
