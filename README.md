@@ -6,3 +6,4 @@ Bao-Chan Bot from PinkDuwc._#2428
 ![GitHub top language](https://img.shields.io/github/languages/top/hongduc-code-dao/Bot-Discord-v13?style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/hongduc-code-dao/Bot-Discord-v13?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/hongduccodedao/Bot-Discord-v13?style=for-the-badge)
+[![Visits Badge](https://badges.pufler.dev/visits/hongduc-code-dao/Bot-Discord-v13?style=for-the-badge)](https://badges.pufler.dev)
