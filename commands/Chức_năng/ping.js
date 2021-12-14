@@ -1,16 +1,26 @@
-const {MessageEmbed} = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
     name: 'ping',
     category: 'Chức_năng',
     aliases: ['ping'],
     utilisation: '{prefix}ping',
-    run (client, message, args) {
+    run: async (client, message, args) => {
+        let pingingembed = new MessageEmbed();
+        pingingembed.setAuthor('Bao-Chan Bot', client.user.displayAvatarURL({ size: 1024, dynamic: true }));
+        pingingembed.setColor('GREEN');
+        pingingembed.setDescription(`🏓Pinging ...`);
+        let pinging = await message.channel.send({embeds: [pingingembed]});
+
         const pingEmbed = new MessageEmbed()
-            .setTitle("🏓  **Pong**:")
+            .setAuthor('Bao-Chan Bot', client.user.displayAvatarURL({ size: 1024, dynamic: true }))
             .setColor ('GREEN')
-            .setDescription(`Ping: ${client.ws.ping} ms`)
+            .setDescription(`🏓 Pong...`)
+            .addField(`**Độ trễ(Bot)**`,`\`${Math.floor(pinging.createdTimestamp - message.createdTimestamp)}ms\``,true)
+            .addField(`**Độ trễ(API)**`,`\`${client.ws.ping}ms\``,true)
             .setTimestamp()
-        message.channel.send({ embeds: [pingEmbed] });
+            .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
+
+        pinging.edit({embeds: [pingEmbed]})
     }
 }
