@@ -106,7 +106,7 @@ client.on("messageCreate", async (message) => {
     if (message.author.bot) return;
     const prefix = '%';
     if(!message.content.startsWith(prefix)) {
-        if (message.channel.id == '903582862626942976') {
+        if (message.channel.id == 'id phòng set chat không cần lệnh %chat') {
             const res = await fetch(`https://api.simsimi.net/v2/?text=${encodeURIComponent(message.content)}&lc=vn`);
             const data = await res.json()
             message.reply(data.success);
