@@ -1,0 +1,8 @@
+{
+    "token": "TOKEN_HERE",
+    "prefix": "PREFIX_HERE",
+    "Database": "DATABASE_MONGODB_HERE",
+    "api_key": "API_KEY_TUMBLR_HERE",
+    "antiCrash": true,
+    "token_user": "TOKEN_USER_HERE"
+}
